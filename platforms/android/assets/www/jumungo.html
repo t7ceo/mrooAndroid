@@ -1,0 +1,126 @@
+<div data-role="page" id="Jumungo" style="padding: 0; margin: 0;">
+
+	<div data-role="panel" id="left-panelJumungo" data-display="overlay"
+		style="width: 220px; border-top: 0; padding: 0; margin: 0; background-color: #efede7;">
+		<ul id="leftsidemenuJumungo" data-role="listview"
+			style="display: block; width: 220px; list-style: none;">
+		</ul>
+		<!--<div class="panelClose" onclick="panelCloseOn()">Close</div>-->
+	</div>
+	<!-- /panel -->
+
+
+	<table class="pageTb">
+		<tr>
+			<td class="top" style="vertical-align: middle;">
+				<ul class="mainMogCha">
+					<li class="sideLi">&nbsp;</li>
+					<li><span>주문 접수</span></li>
+					<li class="mogcha"><a href="#left-panelJumungo"
+						style="width: 100%;">&nbsp;</a></li>
+				</ul>
+			</td>
+		</tr>
+		<tr>
+			<td class="bottom" style="background-color: #c6cdd5">
+
+				<div style="width: 96%; margin: 0 2%;">
+
+<form id="jumungoF">
+<input type="hidden" name="idmd" id="idmdH" value="on">
+<input type="hidden" name="don" id="donH" value="0">
+
+					<h5>장르선택</h5>
+					<table class="jumungoTb">
+						<tr>
+							<td><select id="jlgubun" name="jlgubun">
+									<option value="가요">가요</option>
+									<option value="클래식">클래식</option>
+									<option value="동요">동요</option>
+							</select></td>
+							<td id="jlDon">90,000원</td>
+						</tr>
+
+						<tr>
+							<td>곡명</td>
+							<td>아티스트명</td>
+						</tr>
+						<tr>
+							<td><input type="text" id="song" name="song" required></td>
+							<td><input type="text" id="gasu" name="gasu" required></td>
+						</tr>
+					</table>
+
+					<h5>키조절</h5>
+
+					<textarea id="keymemo" name="keymemo"></textarea>
+
+					<h5>요청사항</h5>
+					<textarea id="jumunmemo" name="jumunmemo" required></textarea>
+
+					<h5>E-mail 주소</h5>
+					<input type="email" id="email" name="email" required>
+
+					<h5>성함 (본명)</h5>
+					<input type="text" id="name" name="name" required>
+
+					<h5>상담 받으실 연락처</h5>
+					<input type="tel" id="tel" name="tel" required>
+
+					<h5>상담 원하시는 시간</h5>
+					<table>
+						<tr>
+							<td style="width: 44%;"><select id="stime" name="stime">
+									<option value="1">01</option>
+									<option value="2">02</option>
+									<option value="3">03</option>
+									<option value="4">04</option>
+									<option value="5">05</option>
+									<option value="6">06</option>
+									<option value="7">07</option>
+									<option value="8">08</option>
+									<option value="9">09</option>
+									<option value="10">10</option>
+									<option value="11">11</option>
+									<option value="12">12</option>
+							</select></td>
+							<td style="width: 12%; text-align: center;">~</td>
+							<td style="width: 44%;"><select id="etime" name="etime">
+									<option value="1">01</option>
+									<option value="2">02</option>
+									<option value="3">03</option>
+									<option value="4">04</option>
+									<option value="5">05</option>
+									<option value="6">06</option>
+									<option value="7">07</option>
+									<option value="8">08</option>
+									<option value="9">09</option>
+									<option value="10">10</option>
+									<option value="11">11</option>
+									<option value="12">12</option>
+							</select></td>
+						</tr>
+					</table>
+
+					<div>
+						주문제작 하실 곡과 키조절, 요청사항을 학인 한 뒤,<br /> 상담 원하시는 시간에 엠알RO에서 연락 드리겠습니다.<br />
+						<br /> 아래 접수하기 버튼으로, 주문제작 내용을 보내 주세요.
+					</div>
+
+</form>
+
+					<div style="width: 94%; margin: 10px 3%;">
+						<button class="ui-btn ui-corner-all" id="jumunComOn">접수하기</button>
+					</div>
+
+
+				</div>
+
+
+			</td>
+		</tr>
+	</table>
+
+
+
+</div>

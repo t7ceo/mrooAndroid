@@ -1,0 +1,12 @@
+<component name="libraryTable">
+  <library name="Gradle: com.kakao.sdk:push-1.11.1">
+    <CLASSES>
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-1/files-1.1/push-1.11.1.aar/3d4f11eb8d8afd2a559b834279aa7072/res" />
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-1/files-1.1/push-1.11.1.aar/3d4f11eb8d8afd2a559b834279aa7072/jars/classes.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.kakao.sdk/push/1.11.1/4a5692cb803310fe38d477cbe92bc33a1fdd028e/push-1.11.1-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

@@ -1,0 +1,72 @@
+
+        <table class="pageTb">
+            <tr>
+                <td class="loginBack">
+
+                    <form id="loginForm">
+                    <table class="loginTable">
+                        <tr>
+                            <td>
+                                <input type="email" name="email" id="Email" value=""
+                                placeholder="이메일" required>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <input type="password" name="password" id="Password" value=""
+                                placeholder="비밀번호" required>
+                            </td>
+                        </tr>
+                    </table>
+                    </form>
+
+                    <div style="width: 80%; margin:40px 10% 12px;">
+                        <a href="#" type="button" id="goLogin22" class="redBigButton"><span>로그인</span></a>
+                    </div>
+
+
+                    <div style="width: 80%; margin: 7px 10% 12px; text-align: right;">
+                        <a href="#" onclick="proPage.loadPage(findMemPage)"><span style="color:black;">이메일/비밀번호 찾기</span></a>
+                    </div>
+
+                    <div style="width: 80%; margin: 18px 10% 12px;">
+                        <a id="custom-login-btn" href="#" onclick="kakaoAndroidLogin()">
+                            <img src="http://mud-kage.kakao.com/14/dn/btqbjxsO6vP/KPiGpdnsubSq3a0PHEGUK1/o.jpg" width="100%"/>
+                        </a>
+
+
+                        <a href="#" onclick="loginWithFacebook()"><img src="./images/facebookbtn.png" style="width:100%;margin:10px 0 2px;"></a>
+                    </div>
+
+                    <div style="width: 80%; margin: 12px 10% 12px;">
+                        <a href="#" type="button" class="blackBigButton" onclick="proPage.loadPage(joinPage)">
+                            <span>이메일로 MROO 회원가입</span></a>
+                    </div>
+
+
+
+                </td>
+            </tr>
+        </table>
+
+
+
+<script type='text/javascript'>
+
+
+$("#goLogin22").on("click", function(){
+	    
+	    var el = frmPro.forminput("loginForm");
+	    if(frmPro.formInf){
+	        var gs1 = new GetServer();
+	        //서버에서 선택한 사업의 대상자를 가져온다.
+	        gs1.basServer(gs1, "mu", "mode=login&"+el);  //서버에서 post 모드로 가져온다.              
+	    }
+	    return false;
+
+    
+});
+
+
+</script>
+

@@ -1,0 +1,12 @@
+<component name="libraryTable">
+  <library name="Gradle: com.kakao.sdk:friends-1.11.1">
+    <CLASSES>
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-1/files-1.1/friends-1.11.1.aar/d9b719b71677403532b4c2cff1058f61/jars/classes.jar!/" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-1/files-1.1/friends-1.11.1.aar/d9b719b71677403532b4c2cff1058f61/res" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.kakao.sdk/friends/1.11.1/5363e2a8dc4b69aa839c009fcd5f88c0d485a8f/friends-1.11.1-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

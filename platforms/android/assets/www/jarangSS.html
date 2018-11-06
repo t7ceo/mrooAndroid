@@ -1,0 +1,88 @@
+<div data-role="page" id="JarangSS" style="padding: 0; margin: 0;">
+
+	<div data-role="panel" id="left-panelJarangSS" data-display="overlay"
+		style="width: 220px; border-top: 0; padding: 0; margin: 0; background-color: #efede7;">
+		<ul id="leftsidemenuJarangSS" data-role="listview"
+			style="display: block; width: 220px; list-style: none;">
+		</ul>
+		<!--<div class="panelClose" onclick="panelCloseOn()">Close</div>-->
+	</div>
+	<!-- /panel -->
+
+
+	<table class="pageTb">
+		<tr>
+			<td class="top" style="vertical-align: middle;">
+				<ul class="mainMogCha">
+					<li class="sideLi">&nbsp;</li>
+					<li><span>노래자랑 상세보기</span></li>
+					<li class="mogcha"><a href="#left-panelJarangSS"
+						style="width: 100%;">&nbsp;</a></li>
+				</ul>
+			</td>
+		</tr>
+		<tr>
+			<td class="bottom" style="background-color:#dedede;">
+
+    <div class="container gradient">
+        
+
+<div class="jarangSS">
+<i id="playerbarPlay" class="fa fa-play-circle-o fa-5x" style="color:white;" onclick="audiogo.play()"></i>
+<i id="playerbarStop" class="fa fa-pause-circle-o fa-5x" style="color:white;" onclick="audiogo.stop()"></i>
+
+</div>
+
+        
+        <img class="cover" src="images/cover.jpg" alt="">
+
+        <div class="player gradient">
+
+            <a class="button gradient" id="play" href="" title=""></a>
+            <a class="button gradient" id="mute" href="" title=""></a>
+
+        
+                <input type="range" id="seek" value="40" max=""/>
+    
+
+            <a class="button gradient" id="close" href="" title=""></a>
+            
+        </div><!-- / player -->
+        
+    </div><!-- / Container-->
+
+<div class="playerbar">
+<div class="playerbarFront"></div>
+</div>
+
+
+<div style="width:96%; margin:6px 2% 12px; text-align:right;">
+
+<i class="fa fa-thumbs-up fa-2x" onclick="evClick.LikeOn()"></i> 좋아요&nbsp;:&nbsp;<span class="likeSu">0</span>&nbsp;
+
+
+<form id="jrDet">
+<input type="hidden" name="idmd" id="idmd" value="on">
+<input type="hidden" name="idgab" id="idgab" value="0">
+
+<textarea id="jrText" name="jrText" required></textarea>
+</form>
+
+
+<button class="ui-btn-corner-all" id="jarangDetBtn">댓글</button>
+</div>
+
+
+<ul class="questionUl" id="allJarangList">
+</ul>
+
+
+			</td>
+		</tr>
+	</table>
+
+<audio id="audioPly" src="#" controls onended="audiogo.audioend()" onpause="music1cha.stoped()" onloadeddata="audiogo.loadA(this)" ontimeupdate="audiogo.chnTime(this)" onplaying="audiogo.onplaying(this)" onprogress="audiogo.progo(this)" style="width: 100%; border: 0; box-shadow: none; display:none; margin: 0; padding: 0; background-color: black;"></audio>
+
+
+
+</div>

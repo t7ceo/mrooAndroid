@@ -1,0 +1,454 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+<meta http-equiv="Content-type" name="viewport"
+	content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no, width=device-width">
+<title>MROO</title>
+
+<!-- 	
+	<link rel="shortcut icon" href="images/icon.png" />
+	<link rel="apple-touch-icon" href="images/icon.png" />
+ -->
+
+
+    <link rel="stylesheet" href="apis/mrapp.css" />
+    <link rel="stylesheet" href="apis/allbtn.css" />
+
+
+    <link rel="stylesheet" type="text/css" href="http://yui.yahooapis.com/3.3.0/build/cssreset/reset-min.css">
+    <link href='http://fonts.googleapis.com/css?family=Lobster' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+
+
+
+    <link rel="stylesheet" href="jquery-mobile/jquery.mobile-1.4.5.min.css" />
+    <link rel="stylesheet" href="jquery-mobile/jquery-ui.min.css" />
+    <link rel="stylesheet" href="jquery-mobile/jquery.mobile.structure-1.4.5.min.css" />
+    <link rel="stylesheet" href="jquery-mobile/jquery.mobile.theme-1.4.5.min.css" />
+
+    <link rel="stylesheet" type="text/css" href="slick/slick.css">
+    <link rel="stylesheet" type="text/css" href="slick/slick-theme.css">
+
+
+<!-- This reference to phonegap.js will allow for code hints as long as the current site has been configured as a mobile application. 
+		 To configure the site as a mobile application, go to Site -> Mobile Applications -> Configure Application Framework... -->
+    <script type="text/javascript" src="cordova.js"></script>
+    <!--<script src="jquery-mobile/jquery-1.11.3.min.js"></script>-->
+    <!--<script src="jquery-mobile/jquery-3.3.1.min.js"></script>-->
+    <!--<script  type="text/javascript" src="https://code.jquery.com/jquery-3.3.1.min.js"></script>-->
+
+    <script src="https://code.jquery.com/jquery-2.2.0.min.js" type="text/javascript"></script>
+    <script src="jquery-mobile/jquery-ui.min.js"></script>
+    <script type="text/javascript" src="slick/slick.js"></script>
+
+    <script type="text/javascript" src="js/jssor.slider.mini.js"></script>
+    <script src="jquery-mobile/jquery.mobile-1.4.5.min.js"></script>
+    <!-- <script src="jquery-mobile/fastclick.js"></script> -->
+    <!--<script src="jquery-mobile/spin.min.js"></script>-->
+
+
+    <!--<script src="http://code.jquery.com/jquery-latest.js" type="text/javascript"></script>-->
+    <script type="text/javascript" src="js/js.js"></script>
+    <!--<script type="text/javascript" src="js/html5slider.js"></script>-->
+
+    <script type="text/javascript" src="apis/fontas.js"></script>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+    <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+
+
+    <style type="text/css">
+        html, body {
+          margin: 0;
+          padding: 0;
+        }
+
+    </style>
+
+    <script type='text/javascript'>
+
+
+    function notipicatMy(){
+
+        callNative.notipicatMy("0","내용입니다.","http://mroo.co.kr/mrphp/music/1se/m8410b387ee73/1se0b1bda9cb96-00.mp3");
+    }
+
+    function notipicatMyOne(obj, tit, gasu, prefix, url){
+
+        //강제로 처음부터 다시 플레이 시킨다.
+        var imsi = url.replace("../mrphp/", "");
+
+        mPlayer.musicPlayInf = "stop";
+
+        if(mPlayer.songId != "0"){
+            $("#"+mPlayer.songId).html("play_circle_outline").css({"color":"#c51162"});
+        }
+
+        mPlayer.songId = obj.id;
+        mPlayer.songTit = tit;
+        mPlayer.gasu = gasu;
+        mPlayer.preFix = prefix;
+        mPlayer.songLink = imsi;
+
+        callNative.notipicatMy(tit,gasu,prefix,imsi);
+    }
+
+    function notipicatMyOneThink(obj, tit, gasu, prefix, url, mode){
+        //싱크제작 및 싱크 플레이 페이지 호출
+        //songFold ==== music/3se/aaaaaaaa/
+        //songId ====  afafafaf-01
+
+
+        var imsi = url.replace("../mrphp/", "");
+
+        mPlayer.songId = obj.id;
+        mPlayer.songTit = tit;
+        mPlayer.gasu = gasu;
+        mPlayer.preFix = prefix;
+        mPlayer.songLink = imsi;
+        var ff = obj.id.split("-");
+        mPlayer.thinkFileName = ff[0]+"-Think.txt";
+        ff = imsi.split("/");
+        mPlayer.songFold = ff[0]+"/"+ff[1]+"/"+ff[2]+"/";
+
+        //alert(mPlayer.songLink+"////"+mPlayer.songFold+"////"+mPlayer.songId);
+        switch(mode){
+        case "set":
+            proPage.loadPage(gasathinkPro);
+        break;
+        case "play":
+            proPage.loadPage(gasathinkPlay);
+        break;
+        case "down":
+            localSys.fileDownBas(MRPHP + mPlayer.songFold + mPlayer.thinkFileName, localSys.dirEntry.toURL()+"imsigasa.txt");
+
+        break;
+        case "upload":
+            localSys.fileUpBas('imsigasa.txt');  //서버에 파일을 전송한다.
+
+        break;
+        }
+
+
+
+    }
+
+
+
+    function notipicatMyOneAgain(){
+
+        if(mPlayer.songTit == "0"){
+            appUtil.alertgo("알림", "음원을 먼저 선택하세요.");
+            return;
+        }
+
+        callNative.notipicatMy(mPlayer.songTit,mPlayer.gasu,mPlayer.preFix,mPlayer.songLink);
+
+    }
+
+
+
+    function loginWithFacebook() {
+
+        callNative.faceLogin("http://naver.com","4bcc362eec4026e4ea9481bcddaf2978","ccc");
+
+    };
+
+    function kakaoAndroidLogin(){
+        callNative.kakaoAndroidLogin("http://naver.com","4bcc362eec4026e4ea9481bcddaf2978","ccc");
+    }
+
+    //Kakao.init('4bcc362eec4026e4ea9481bcddaf2978');
+    function loginWithKakao() {
+
+        callNative.webDisp("https://kauth.kakao.com/oauth/authorize?client_id=4bcc362eec4026e4ea9481bcddaf2978&redirect_uri=http://mroo.co.kr/oauthkk&response_type=code","4bcc362eec4026e4ea9481bcddaf2978","ccc");
+
+    };
+
+
+
+    </script>
+
+
+</head>
+
+<body topmargin="0" leftmargin="0">
+
+
+
+<div data-role="page" id="Fpage">
+
+    <div class="contentLoading"><img src="./images/loading2.gif" style="width:12%;"><p>Loading...</p></div>
+
+    <div id="overlay2" data-role="popup" data-theme="a" data-overlay-theme="b" data-transition="pop">
+        <ul data-role="listview" id="sangseMList" style="min-width:210px;">
+            <!-- <li data-role="list-divider">se song</li> -->
+        </ul>
+    </div>
+
+
+
+    <div data-role="popup" id="networkInf" data-overlay-theme="b"
+         data-theme="b" data-dismissible="false" style="max-width: 380px;"
+         class="ui-popup ui-body-b ui-overlay-shadow ui-corner-all">
+        <div data-role="header" data-theme="a" role="banner"
+             class="ui-header ui-bar-a">
+            <h1 class="ui-title" role="heading" aria-level="1">연결 설정</h1>
+        </div>
+        <div role="main" class="ui-content">
+            <h3 class="ui-title">무선데이터 요금이 발생할 수 있습니다.</h3>
+            <table style="width: 90%; margin: 2px 5%;">
+                <tr>
+                    <td style="text-align: center;"><a href="#"
+                                                       class="ui-btn ui-corner-all ui-shadow ui-btn-inline ui-btn-b"
+                                                       onclick="messageClose(1)">설정</a> <!-- <input type="checkbox" id="chk3g4g" name="chk3g4g" value="1" checked><label for="chk3g4g"></label>-->
+                    </td>
+                    <td style="text-align: center;"><a href="#"
+                                                       class="ui-btn ui-corner-all ui-shadow ui-btn-inline ui-btn-b"
+                                                       onclick="messageClose(2)">닫기</a></td>
+                </tr>
+            </table>
+        </div>
+    </div>
+
+
+    <div data-role="popup" id="gasaPop" data-transition="pop" data-overlay-theme="b" data-theme="b" data-dismissible="false"
+         class="ui-popup ui-body-b ui-overlay-shadow ui-corner-all" style="width:90%;margin:0 5% 30px;">
+        <div data-role="header" data-theme="a" role="banner"
+             class="ui-header ui-bar-a">
+            <h1 class="ui-title" role="heading" aria-level="1" style="color:black;">가사보기</h1>
+        </div>
+        <div role="main" class="ui-content">
+            <h3 class="ui-title" id="dispGasaTxt">가사출력....</h3>
+            <table style="width: 90%; margin: 2px 5%;">
+                <tr>
+                    <td style="text-align: center;">
+                    </td>
+                    <td style="text-align: center;"><a href="#" data-rel="back"
+                                                       class="ui-btn ui-corner-all ui-shadow ui-btn-inline ui-btn-b">닫기</a></td>
+                </tr>
+            </table>
+        </div>
+    </div>
+
+
+
+
+    <div data-role="popup" id="musicSangseSe" data-theme="a">
+            <!-- This popup has its theme explicitly defined via data-theme="a"
+         because it has no parent from which to automatically inherit
+         its theme -->
+        <div>yyyyyy</div>
+
+    </div>
+
+
+    <div data-role="panel" id="buypanel" data-display="push" data-position="right" style="text-align:right;">
+        <ul data-role="listview">
+            <li class="buyTit" style="background-color:#f50057;text-shadow:none;color:white;vertical-align:middle;">
+                <i class="material-icons" style="vertical-align:middle;">confirmation_number</i> 결제수단
+            </li>
+            <li style="color:black;">
+                <i class="material-icons">android</i> 인뱁결제
+            </li>
+            <li style="color:black;">
+                <i class="material-icons">touch_app</i> 카카오 뱅크
+            </li>
+            <li style="color:black;">
+                <i class="material-icons">perm_phone_msg</i> 휴대폰&상품권
+            </li>
+            <li style="color:black;">
+                <i class="material-icons">payment</i> 카드결제
+            </li>
+        </ul>
+    </div>
+    <!-- /panel -->
+
+
+    <div data-role="panel" id="left-panelFpage" data-display="overlay">
+        <ul id="leftsidemenuFpage" data-role="listview">
+        </ul>
+    </div>
+    <!-- /panel -->
+
+
+
+
+    <div id="pageHeader" data-role="header" data-position="fixed" data-tap-toggle="false" style="border:none;">
+
+        <img id="appHeaderImg" src="./images/statbar.png" style="width:100%;display:none;">
+
+                    <ul class="mainMogCha">
+                        <li class="mogcha">
+                            <a href="#left-panelFpage"><span><i class='fas fa-bars'>&nbsp;</i></span></a></li>
+                        <li><span id="mainHeadTit">MROO</span></li>
+                        <li class="sideLi"><a href="#"><span><i class='fas fa-search'>&nbsp;</i></span></a></li>
+                    </ul>
+
+
+        <div class="topTab" id="mainTabArea">
+            <ul><li class="tabLi1" onclick="proPage.mainTabJoinPage(1)">TOP<span>&bull;</span></li>
+                <li class="tabLi2" onclick="proPage.mainTabJoinPage(2)">NEW<span>&bull;</span></li>
+                <li class="tabLi3" onclick="proPage.mainTabJoinPage(3)">주문제작<span>&bull;</span></li>
+                <li class="tabLi4" onclick="proPage.mainTabJoinPage(4)">MY<span>&bull;</span></li>
+                <li class="tabLi5" onclick="proPage.mainTabJoinPage(5)">CLUB<span>&bull;</span></li></ul>
+        </div>
+
+
+    </div><!-- /header -->
+
+
+
+
+
+    <div id="contentBody" data-role="content"  style="padding:1px 0 0;margin:98px 0 0;">
+
+
+        <div id="mainContent"></div>
+
+
+
+<!--
+        <dl class="accordionMain">
+
+            <dt><a href="">Panel 1</a></dt>
+            <dd><table><tr><td>uuuuuu</td><td>uuuuueee</td></tr><tr><td>77777</td><td>5555</td></tr></table></dd>
+
+            <dt><a href="">Panel 2</a></dt>
+            <dd><ul><li>fffff</li><li>uuuuu</li></ul></dd>
+
+            <dt><a href="">Panel 3</a></dt>
+            <dd>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Phasellus hendrerit. Pellentesque aliquet nibh nec urna. In nisi neque, aliquet vel, dapibus id, mattis vel, nisi. Sed pretium, ligula sollicitudin laoreet viverra, tortor libero sodales leo, eget blandit nunc tortor eu nibh. Nullam mollis. Ut justo. Suspendisse potenti.</dd>
+
+        </dl>
+-->
+
+
+        <section class="lazy slider" id="mainSliderArea" data-sizes="100vw">
+            <div>
+                <div id="bodyContent1">
+                    <span class="testText">TOP</span>
+                </div>
+            </div>
+            <div>
+                <div id="bodyContent2">
+                    <span class="testText">NEW</span>
+                </div>
+            </div>
+            <div>
+                <div id="bodyContent3">
+                    <span class="testText">주문제작</span>
+                </div>
+            </div>
+            <div>
+                <!-- this slide should inherit the sizes attr from the parent slider -->
+                <div id="bodyContent4">
+                    <span class="testText">MY</span>
+                </div>
+            </div>
+            <div>
+                <!-- this slide should inherit the sizes attr from the parent slider -->
+                <div id="bodyContent5">
+                    <span class="testText">CLUB</span>
+                </div>
+            </div>
+        </section>
+
+
+
+    </div>
+
+
+<!----foot------>
+    <div id="pageFoot" data-role="footer" data-position="fixed" data-tap-toggle="false" style="padding:0;margin:0;border:0;">
+
+        <div id="thinkFoot" style="display:none;">
+            <img src="./images/undertit.png" style="width:72%;">
+            <img src="./images/thinkIcon.png" style="width:38%;" onclick="thinkSys.thinkPlay()">
+        </div>
+
+
+        <div id="addTopMenu">
+
+    <!--
+    <div class="JumunFMenu" data-role="navbar">
+    <ul>
+    <li id="goQuestion"><a href="#">간단문의</a></li>
+    <li id="goMyQuestion"><a href="myquestion.html">내 질문</a></li>
+    <li id="goJumunSend"><a href="jumunsend.html">MR 주문</a></li>
+    </ul>      
+    </div>
+    -->
+        
+        </div>
+
+
+
+            <div id="addMenuMain" style="display:none;background-color:#ff80ab;">
+
+                <ul class="musicControl">
+                    <li id="playListOn" onclick="proPage.loadPage(recListPage)"><i class='material-icons'>playlist_add</i></li>
+                    <li><a href='#' onclick="proPage.tabDispInf(true)"><i class='material-icons'>mic</i></a></li>
+                    <li  onclick="proPage.tabDispInf(false)"><i class='material-icons'>album</i></li> <!-- onclick="evClick.voiceRec()"-->
+                    <li onclick="music1cha.mDown()"><i class='material-icons'>get_app</i></li>
+
+
+                    <!--<li onclick="music1cha.play()"><img src="./images/bottom1_off.png"></li>
+                    <li id="voiceRec" onclick="appUtil.moveOkHistory('recList.html')"><img src="./images/bottom2_off.png"></li>
+                    <!-- <li id="voiceRec" onclick="evClick.voiceRec()"><img src="./images/bottom1_off"></li> -->
+                    <!-- <li onclick="appUtil.moveOkHistory('recList.html')">녹음목록</li> -->
+                    <!--<li onclick="appUtil.moveOkHistory('recList.html')"><img src="./images/bottom3_off.png"></li>-->
+
+                </ul>
+
+            </div>
+
+
+            <div class="musicPlayBarDiv">
+
+                <table class="musicPlayBar">
+                    <tr><td><i class="material-icons">queue_music</i></td>
+                    <td id="musicTit">선택음원 없음</td>
+                    <td onclick="notipicatMy()"><i class="material-icons">skip_previous</i></td>
+                        <td><a href="#" onclick="notipicatMyOneAgain()"><span id="playButtonSpan"><i class="material-icons">play_circle_outline</i></span></a></td>
+                    <td><i class="material-icons">skip_next</i></td></tr></table>
+
+
+<!--
+                <ul class="audioUl" style="display:none;">
+                    <li class="long">
+                        <div class="musicBarR"><a href="#" class="footMenuCall"><span><i class='fab fa-microsoft'>&nbsp;</i></span></a></div>
+                        <audio id="audioPly" src="" controls   onended="music1cha.audioend()" onpause="music1cha.stoped()"
+                               style="width: 100%; border: 0; box-shadow: none; margin: 0; padding: 0; background-color:#1c143d;"></audio>
+                    </li>
+                    <li><span id="songTitSp">노래제목</span><span id="songGasuSp">가수 이름</span><span class="gasabtn"><a href="#gasaPop" data-rel="popup"><i class="fas fa-align-center"></i></a></span></li>
+                </ul>
+-->
+
+            </div>
+
+
+    </div>
+<!-------foot 종료---------->
+
+
+</div>
+
+
+<!--
+<script type="text/javascript" charset="utf-8" src="jquery-plugin/jquery.slimscroll.min.js"></script>
+-->
+
+<script type="text/javascript" charset="utf-8" src="apis/language.js"></script>
+<script type="text/javascript" charset="utf-8" src="apis/StructAndLocal.js"></script>
+<script type="text/javascript" charset="utf-8" src="apis/PageEventAndUtil.js"></script>
+<script type="text/javascript" charset="utf-8" src="apis/allAjax.js"></script>
+<script type="text/javascript" charset="utf-8" src="apis/usage.js"></script>
+<script type="text/javascript" charset="utf-8" src="apis/onBeforeShow.js"></script>
+
+
+</body>
+
+</html>

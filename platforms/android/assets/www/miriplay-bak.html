@@ -1,0 +1,78 @@
+<div data-role="page" id="Miriplay" style="padding: 0; margin: 0; background-color: #f5f5f5;">
+
+	<div data-role="panel" id="left-panelMiriplay" data-display="overlay"
+		style="width: 220px; border-top: 0; padding: 0; margin: 0; background-color: #efede7;">
+		<ul id="leftsidemenuMiriplay" data-role="listview"
+			style="display: block; width: 220px; list-style: none;">
+		</ul>
+		<!--<div class="panelClose" onclick="panelCloseOn()">Close</div>-->
+	</div>
+	<!-- /panel -->
+
+
+	<table class="pageTb">
+		
+<!--
+		<tr>
+		 		
+			<td class="topN">
+				<ul class="topNBtn">
+					<li><a href="#left-panelMiriplay" data-rel="back" style="width: 100%;">&nbsp;</a></li>
+					<li></li>
+					<li></li>
+					<li><a href="#" style="width: 100%;">&nbsp;</a></li>
+				</ul>
+			</td>
+		</tr>
+ -->
+ 
+        <tr>
+            <td class="top" style="vertical-align: middle;">
+                <ul class="mainMogCha">
+                    <li class="sideLi">&nbsp;</li>
+                    <li><span>최신MR</span></li>
+                    <li class="mogcha"><a href="#left-panelMiriplay"
+                        style="width: 100%;">&nbsp;</a></li>
+                </ul>
+            </td>
+        </tr>
+
+		<tr>
+			<td class="contentF">
+
+<div class="mrmainMDiv">
+<p class="iconTit">
+<span><img src="./images/top100.png" style="width:30%;"></span>
+</p>
+
+	<ul id="allMusic" class="allMusic"></ul>
+
+</div>
+
+			</td>
+		</tr>
+	</table>
+
+	<div data-role="footer" data-position="fixed" data-tap-toggle="false">
+	
+	<ul class="audioUl"><li>
+		<audio id="audioPly" src="" controls onended="music1cha.audioend()" onpause="music1cha.stoped()" style="width: 100%; border: 0; box-shadow: none; margin: 0; padding: 0; background-color: black;"></audio>
+	</li><li>		
+			<img src="images/ico_file.gif" onclick="music1cha.dispGasa()">
+	</li></ul>		
+			
+
+		<ul class="musicControl">
+			<li onclick="music1cha.play()"><img src="./images/bottom1_off.png"></li>
+			<li id="voiceRec" onclick="appUtil.moveOkHistory('recList.html')"><img src="./images/bottom2_off.png"></li>
+			<!-- <li id="voiceRec" onclick="evClick.voiceRec()"><img src="./images/bottom1_off"></li> -->
+			<!-- <li onclick="appUtil.moveOkHistory('recList.html')">녹음목록</li> -->
+			<li onclick="appUtil.moveOkHistory('recList.html')"><img src="./images/bottom3_off.png"></li>
+			<li onclick="music1cha.mDown()"><img src="./images/bottom4_off.png"></li>
+			<li onclick="evClick.voiceRec()"><img src="./images/bottom5_off.png"></li>
+		</ul>
+
+	</div>
+
+
+</div>

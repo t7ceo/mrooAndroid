@@ -1,0 +1,66 @@
+<div data-role="page" id="MyVoiceUp" style="padding: 0; margin: 0;">
+
+	<div data-role="panel" id="left-panelMyVoiceUp" data-display="overlay"
+		style="width: 220px; border-top: 0; padding: 0; margin: 0; background-color: #efede7;">
+		<ul id="leftsidemenuMyVoiceUp" data-role="listview"
+			style="display: block; width: 220px; list-style: none;">
+		</ul>
+		<!--<div class="panelClose" onclick="panelCloseOn()">Close</div>-->
+	</div>
+	<!-- /panel -->
+
+
+
+
+	<table class="pageTb">
+		<tr>
+			<td class="top" style="vertical-align: middle;">
+				<ul class="mainMogCha">
+					<li class="sideLi">&nbsp;</li>
+					<li><span>업로드 하기</span></li>
+					<li class="mogcha"><a href="#left-panelMyVoiceUp"
+						style="width: 100%;">&nbsp;</a></li>
+				</ul>
+			</td>
+		</tr>		
+		<tr>
+			<td class="bottom" style="background-color:white;">
+			
+<form id="myVoiceUpForm">
+    
+                    <table class="memTable" style="width:100%;">
+                        <tr>
+                            <td colspan="2" class="colgray">
+
+                                <div id="faceBig" style="width:100%; margin:0;">
+                                    <img src="./images/txtfaceBig.png">
+                                    <div class="buttonSo"><button class="editfaceBig">편집</button></div>
+                                </div>
+
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>제목</td>
+                            <td><div style="width:94%; margin:0 6% 0 0;"><input type="text" id="tit" name="tit" required></div></td>
+                        </tr>
+                        <tr>
+                            <td>내용</td>
+                            <td><div style="width:94%; margin:0 6% 0 0;"><textarea name="content" id="content" required></textarea></div></td>
+                        </tr>
+                    </table>
+
+    
+</form>
+
+
+                                <div style="width: 80%; margin: 12px 10% 9px;">
+                                    <button id="voiceUpGo">업로드</button>
+                                </div>
+
+
+			</td>
+		</tr>
+	</table>
+
+
+</div>

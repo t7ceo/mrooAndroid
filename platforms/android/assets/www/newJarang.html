@@ -1,0 +1,53 @@
+<div data-role="page" id="NewJarang" style="padding: 0; margin: 0;">
+
+	<div data-role="panel" id="left-panelNewJarang" data-display="overlay"
+		style="width: 220px; border-top: 0; padding: 0; margin: 0; background-color: #efede7;">
+		<ul id="leftsidemenuNewJarang" data-role="listview"
+			style="display: block; width: 220px; list-style: none;">
+		</ul>
+		<!--<div class="panelClose" onclick="panelCloseOn()">Close</div>-->
+	</div>
+	<!-- /panel -->
+
+
+
+
+	<table class="pageTb">
+		<tr>
+			<td class="top" style="vertical-align: middle;">
+				<ul class="mainMogCha">
+					<li class="sideLi">&nbsp;</li>
+					<li><span>NEW 노래자랑</span></li>
+					<li class="mogcha"><a href="#left-panelNewJarang"
+						style="width: 100%;">&nbsp;</a></li>
+				</ul>
+			</td>
+		</tr>		
+		<tr>
+			<td class="bottom" style="background-color:white;">
+			
+			
+
+<table style="width:60%; padding:0 0 0 10px; margin:0 0 0 2%;">
+<tr><td style="width:50%;"><a href="#" class="ui-btn" id="allPlay">전체듣기</a><td></td>
+</tr></table>
+
+
+            <table class="mainPageTbNoBd" id="newJarangDisp">
+            </table>
+
+
+			</td>
+		</tr>
+	</table>
+
+    <div data-role="footer" data-position="fixed" data-tap-toggle="false" style="padding:0;">
+    
+    <ul class="audioUl"><li class="long">
+        <audio id="audioPly" src="#" controls onended="music1cha.audioend()" onpause="music1cha.stoped()" style="width: 100%; border: 0; box-shadow: none; margin: 0; padding: 0; background-color: black;"></audio>
+    </li></ul>      
+            
+    </div>
+
+
+</div>

@@ -1,0 +1,173 @@
+a span{
+    display:block;
+    width:auto;
+    height:auto;
+    color:black;
+}
+a:link{color:#fff;}
+a:visited{color:#fff;}
+a:active{background-color:#f4f4f4;}
+a:hover{color:#fff;}
+
+
+
+.norMainBtn{
+	padding:9px 25px;
+	border-radius:6px;
+	color:white;
+	text-shadow:none;
+	margin:20px auto;
+	display:inline-block;
+	background-color:#000b2b;
+}
+
+a.nButton{
+    width:auto;
+    text-align:center;
+    color:white;
+    display:inline-block;
+    font-weight:bold;
+    border-radius:4px;
+    text-shadow:none;
+    font-weight:bold;
+    padding:7px 12px;
+    background-color:#b8b7b7;
+    background: -webkit-gradient(linear, left top, left bottom, from(#b8b7b7), to(#878585));
+    background: -webkit-linear-gradient(top, #b8b7b7 20%, #878585 100%);
+}
+a.nButton span{color:white;}
+a.nButton:active{
+    background-color:#b8b7b7;
+    background: -webkit-gradient(linear, left top, left bottom, from(#878585), to(#b8b7b7));
+    background: -webkit-linear-gradient(top, #878585 20%, #b8b7b7 100%);
+}
+
+
+
+.norButtonBlu{
+	width:100%;
+	text-align:center;
+	color:white;
+	display:inline-block;
+	font-weight:bold;
+	border-radius:4px;
+	text-shadow:none;
+	font-weight:bold;
+	padding:12px 0;
+	background-color:#b8b7b7;
+	background: -webkit-gradient(linear, left top, left bottom, from(#b8b7b7), to(#878585));
+	background: -webkit-linear-gradient(top, #b8b7b7 20%, #878585 100%);
+}
+
+
+
+div.buttonSo{
+	width:50%;
+	margin:2px 25%;
+}
+div.buttonBig{
+    width:80%;
+    margin:2px 10%;
+}
+
+
+a.roundBoxBlue{
+    display:block;
+    width:70%;
+    margin:8px auto;
+    padding:10px 8px;
+    text-align:center;
+    color:white;
+    background-color:#1c143d;
+    font-weight:bold;
+    border-radius:16px;
+}
+a.roundBoxBlue span{
+    color:white;
+    font-weight:bold;
+    font-size:1.2em;
+}
+
+
+a.roundBtnNormal, a.roundBtnNormalOn, a.roundBtnRed{
+    display:inline-block;
+    width:30%;
+    margin:0;
+    padding:9px 8px;
+    text-align:center;
+    color:#dedede;
+    background-color:white;
+    font-weight:bold;
+    border:#dedede 2px solid;
+    border-radius:10px;
+    z-index:1;
+}
+a.roundBtnNormal span, a.roundBtnNormalOn span{
+    color:#dedede;
+    font-weight:bold;
+    font-size:1em;
+}
+a.roundBtnNormalOn span{
+    color:#1c143d;
+}
+a.roundBtnNormalOn{
+    border:#1c143d 2px solid;
+}
+a.roundBtnRed{
+    border:#f50057 2px solid;
+}
+a.roundBtnRed:active{background-color:#ff80ab;}
+
+
+
+
+.musicBarR{
+    position:absolute;
+    left:90%;
+    margin-bottom:0;
+    padding:14px 0 0;
+    width:10%;
+    color:#777;
+    font-size:1.4em;
+    height:34px;
+    text-align:center;
+    margin-right:0;
+    vertical-align:middle;
+    border-left:#dedede 1px solid;
+    z-index:10000;
+    background-color:white;
+}
+.musicBarR a span{
+    color:#777;
+}
+
+/*=========mroo 버튼=========================*/
+.redBigButton, .yelloBigButton, .blackBigButton{
+    display:block;
+    width:100%;
+    margin:4px 0;
+    background-color:#f50057;
+    border-radius:5px;
+}
+.yelloBigButton{
+    background-color:#ffde00;
+}
+.blackBigButton{
+    background-color:#000;
+}
+.redBigButton span, .yelloBigButton span, .blackBigButton span{
+    display:block;
+    width:100%;
+    margin:0;
+    font-size:1.1em;
+    padding:12px 0;
+    color:white;
+}
+.yelloBigButton span{
+    color:black;
+    padding:10px 0;
+    display:block;
+}
+.yelloBigButton span img{
+    width:8%;
+}
